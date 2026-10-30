@@ -1,0 +1,11 @@
+# Eksperimen LP (butuh GPU NVIDIA). Pilih cuopt-cu12 atau cuopt-cu13 sesuai driver.
+cuopt-cu12==26.10.0
+# CuPy 14.2.0 terpasang sebagai dependensi cuOpt
+numpy==2.4.6
+scipy==1.18.1
+pandas==3.0.6
+scikit-learn==1.9.1
+# Uji pembulatan (CPU)
+highspy
+# Pembuatan gambar
+matplotlib

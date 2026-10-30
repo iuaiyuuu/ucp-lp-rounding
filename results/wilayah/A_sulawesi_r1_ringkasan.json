@@ -1,0 +1,45 @@
+{
+ "n": 81,
+ "cols": [
+  "PDRB_ADHK",
+  "IPM",
+  "TPAK"
+ ],
+ "P": 3240,
+ "thetas": [
+  1.0729000151907924,
+  2.5077998156556562
+ ],
+ "theta_eval": 2.0019642600882355,
+ "metode": "pdlp",
+ "tol": 1e-06,
+ "sep_tol": 1e-05,
+ "per_pasangan": 1,
+ "monoton": "an2025",
+ "pembulatan": "an2025",
+ "presisi": "double",
+ "row_elim": false,
+ "row_elim_tol": 1e-06,
+ "maxcut": 0,
+ "batas_waktu": 900.0,
+ "subsampel": 0,
+ "seed": 0,
+ "stop_reason": "konvergen",
+ "dropped_total": 0,
+ "lp_obj": 841.7500002334086,
+ "lp_converged": true,
+ "lp_rounds": 23,
+ "lp_active_tri": 20473,
+ "lp_full_tri": 511920,
+ "viol_tri": 2.522891546785644e-07,
+ "viol_mono": 2.279054946985326e-07,
+ "viol_bound": 0.0,
+ "t_lp": 7.9397611169843,
+ "t_round": 0.0039012720226310194,
+ "t_hc": 0.00034379499265924096,
+ "max_iter_pc": 5000,
+ "unfinished_precluster": [
+  0,
+  0
+ ]
+}

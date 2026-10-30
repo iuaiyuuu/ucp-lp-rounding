@@ -1,0 +1,155 @@
+Kabupaten_Kota,Provinsi,cluster_lapisan1,cluster_hcc
+Simeulue,ACEH,83,5
+Aceh Singkil,ACEH,82,5
+Aceh Selatan,ACEH,81,5
+Aceh Tenggara,ACEH,83,5
+Aceh Timur,ACEH,80,5
+Aceh Tengah,ACEH,79,5
+Aceh Barat,ACEH,78,5
+Aceh Besar,ACEH,77,5
+Pidie,ACEH,76,5
+Bireuen,ACEH,75,5
+Aceh Utara,ACEH,74,5
+Aceh Barat Daya,ACEH,73,5
+Gayo Lues,ACEH,72,5
+Aceh Tamiang,ACEH,83,5
+Nagan Raya,ACEH,71,5
+Aceh Jaya,ACEH,83,5
+Bener Meriah,ACEH,70,4
+Pidie Jaya,ACEH,69,5
+Kota Banda Aceh,ACEH,68,3
+Kota Sabang,ACEH,67,5
+Kota Langsa,ACEH,66,5
+Kota Lhokseumawe,ACEH,67,5
+Kota Subulussalam,ACEH,83,5
+Nias,SUMATERA UTARA,65,4
+Mandailing Natal,SUMATERA UTARA,64,5
+Tapanuli Selatan,SUMATERA UTARA,83,5
+Tapanuli Tengah,SUMATERA UTARA,63,5
+Tapanuli Utara,SUMATERA UTARA,70,4
+Toba Samosir,SUMATERA UTARA,62,5
+Labuhan Batu,SUMATERA UTARA,61,5
+Asahan,SUMATERA UTARA,60,5
+Simalungun,SUMATERA UTARA,59,5
+Dairi,SUMATERA UTARA,70,4
+Karo,SUMATERA UTARA,70,4
+Deli Serdang,SUMATERA UTARA,58,2
+Langkat,SUMATERA UTARA,57,5
+Nias Selatan,SUMATERA UTARA,56,5
+Humbang Hasundutan,SUMATERA UTARA,70,4
+Pakpak Bharat,SUMATERA UTARA,70,4
+Samosir,SUMATERA UTARA,70,4
+Serdang Bedagai,SUMATERA UTARA,55,5
+Batu Bara,SUMATERA UTARA,83,5
+Padang Lawas Utara,SUMATERA UTARA,83,5
+Padang Lawas,SUMATERA UTARA,54,5
+Labuhan Batu Selatan,SUMATERA UTARA,53,5
+Labuhan Batu Utara,SUMATERA UTARA,52,5
+Nias Utara,SUMATERA UTARA,51,5
+Nias Barat,SUMATERA UTARA,65,4
+Kota Sibolga,SUMATERA UTARA,50,5
+Kota Tanjung Balai,SUMATERA UTARA,83,5
+Kota Pematang Siantar,SUMATERA UTARA,67,5
+Kota Tebing Tinggi,SUMATERA UTARA,49,5
+Kota Medan,SUMATERA UTARA,48,1
+Kota Binjai,SUMATERA UTARA,47,5
+Kota Padangsidimpuan,SUMATERA UTARA,46,5
+Kota Gunungsitoli,SUMATERA UTARA,83,5
+Kepulauan Mentawai,SUMATERA BARAT,65,4
+Pesisir Selatan,SUMATERA BARAT,45,5
+Solok,SUMATERA BARAT,44,5
+Sijunjung,SUMATERA BARAT,83,5
+Tanah Datar,SUMATERA BARAT,43,5
+Padang Pariaman,SUMATERA BARAT,42,5
+Agam,SUMATERA BARAT,41,5
+Lima Puluh Kota,SUMATERA BARAT,83,5
+Pasaman,SUMATERA BARAT,83,5
+Solok Selatan,SUMATERA BARAT,40,5
+Dharmasraya,SUMATERA BARAT,39,5
+Pasaman Barat,SUMATERA BARAT,83,5
+Kota Padang,SUMATERA BARAT,38,0
+Kota Solok,SUMATERA BARAT,67,5
+Kota Sawah Lunto,SUMATERA BARAT,37,5
+Kota Padang Panjang,SUMATERA BARAT,67,5
+Kota Bukittinggi,SUMATERA BARAT,67,5
+Kota Payakumbuh,SUMATERA BARAT,67,5
+Kota Pariaman,SUMATERA BARAT,67,5
+Kuantan Singingi,RIAU,36,5
+Indragiri Hulu,RIAU,35,5
+Indragiri Hilir,RIAU,34,5
+Pelalawan,RIAU,33,5
+Siak,RIAU,32,5
+Kampar,RIAU,31,5
+Rokan Hulu,RIAU,30,5
+Bengkalis,RIAU,58,2
+Rokan Hilir,RIAU,29,5
+Kepulauan Meranti,RIAU,83,5
+Kota Pekanbaru,RIAU,28,2
+Kota Dumai,RIAU,27,5
+Kerinci,JAMBI,26,5
+Merangin,JAMBI,83,5
+Sarolangun,JAMBI,83,5
+Batang Hari,JAMBI,25,5
+Muaro Jambi,JAMBI,83,5
+Tanjung Jabung Timur,JAMBI,24,5
+Tanjung Jabung Barat,JAMBI,23,5
+Tebo,JAMBI,83,5
+Bungo,JAMBI,83,5
+Kota Jambi,JAMBI,67,5
+Kota Sungai Penuh,JAMBI,22,5
+Ogan Komering Ulu,SUMATERA SELATAN,83,5
+Ogan Komering Ilir,SUMATERA SELATAN,83,5
+Muara Enim,SUMATERA SELATAN,21,5
+Lahat,SUMATERA SELATAN,83,5
+Musi Rawas,SUMATERA SELATAN,83,5
+Musi Banyuasin,SUMATERA SELATAN,20,5
+Banyu Asin,SUMATERA SELATAN,19,5
+Ogan Komering Ulu Selatan,SUMATERA SELATAN,72,5
+Ogan Komering Ulu Timur,SUMATERA SELATAN,18,5
+Ogan Ilir,SUMATERA SELATAN,72,5
+Empat Lawang,SUMATERA SELATAN,72,5
+Penukal Abab Lematang Ilir,SUMATERA SELATAN,72,5
+Musi Rawas Utara,SUMATERA SELATAN,83,5
+Kota Palembang,SUMATERA SELATAN,17,2
+Kota Prabumulih,SUMATERA SELATAN,16,5
+Kota Pagar Alam,SUMATERA SELATAN,72,5
+Kota Lubuklinggau,SUMATERA SELATAN,15,5
+Bengkulu Selatan,BENGKULU,83,5
+Rejang Lebong,BENGKULU,83,5
+Bengkulu Utara,BENGKULU,83,5
+Kaur,BENGKULU,83,5
+Seluma,BENGKULU,83,5
+Mukomuko,BENGKULU,14,5
+Lebong,BENGKULU,83,5
+Kepahiang,BENGKULU,13,5
+Bengkulu Tengah,BENGKULU,83,5
+Kota Bengkulu,BENGKULU,67,5
+Lampung Barat,LAMPUNG,72,5
+Tanggamus,LAMPUNG,83,5
+Lampung Selatan,LAMPUNG,12,5
+Lampung Timur,LAMPUNG,11,5
+Lampung Tengah,LAMPUNG,10,5
+Lampung Utara,LAMPUNG,9,5
+Way Kanan,LAMPUNG,83,5
+Tulangbawang,LAMPUNG,83,5
+Pesawaran,LAMPUNG,83,5
+Pringsewu,LAMPUNG,83,5
+Mesuji,LAMPUNG,8,5
+Tulang Bawang Barat,LAMPUNG,83,5
+Pesisir Barat,LAMPUNG,7,5
+Kota Bandar Lampung,LAMPUNG,6,5
+Kota Metro,LAMPUNG,67,5
+Bangka,KEP. BANGKA BELITUNG,5,5
+Belitung,KEP. BANGKA BELITUNG,4,5
+Bangka Barat,KEP. BANGKA BELITUNG,83,5
+Bangka Tengah,KEP. BANGKA BELITUNG,83,5
+Bangka Selatan,KEP. BANGKA BELITUNG,83,5
+Belitung Timur,KEP. BANGKA BELITUNG,83,5
+Kota Pangkal Pinang,KEP. BANGKA BELITUNG,67,5
+Karimun,KEPULAUAN RIAU,4,5
+Bintan,KEPULAUAN RIAU,3,5
+Natuna,KEPULAUAN RIAU,2,5
+Lingga,KEPULAUAN RIAU,1,5
+Kepulauan Anambas,KEPULAUAN RIAU,83,5
+Kota Batam,KEPULAUAN RIAU,0,2
+Kota Tanjung Pinang,KEPULAUAN RIAU,67,5

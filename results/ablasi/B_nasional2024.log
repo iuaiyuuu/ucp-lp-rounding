@@ -1,0 +1,98 @@
+n=514 | variabel=['PDRB_ADHK', 'IPM', 'TPAK'] | pasangan=131841 | theta P25=1.0204 P75=2.4285 mean=1.9642 | metode=pdlp tol=1e-06 sep_tol=1e-05 per_pasangan=1 monoton=an2025 pembulatan=an2025 presisi=double row_elim=False maxcut=10000 batas_waktu=818.0 subsampel=0 seed=0
+  putaran   1: status=1 obj LP=0.0000 | langgar maks=1.00e+00 | segitiga baru=73649 (dipakai 10000) | dibuang=0 | total segitiga=0 | solve 0.6s sep 1.2s | 1.8s
+  putaran   2: status=1 obj LP=687.0000 | langgar maks=1.00e+00 | segitiga baru=78576 (dipakai 10000) | dibuang=0 | total segitiga=10000 | solve 0.4s sep 0.9s | 3.1s
+  putaran   3: status=1 obj LP=1279.0000 | langgar maks=1.00e+00 | segitiga baru=82741 (dipakai 10000) | dibuang=0 | total segitiga=20000 | solve 0.2s sep 0.9s | 4.3s
+  putaran   4: status=1 obj LP=1922.0000 | langgar maks=1.00e+00 | segitiga baru=86070 (dipakai 10000) | dibuang=0 | total segitiga=30000 | solve 0.2s sep 1.0s | 5.4s
+  putaran   5: status=1 obj LP=2776.0000 | langgar maks=1.00e+00 | segitiga baru=89760 (dipakai 10000) | dibuang=0 | total segitiga=40000 | solve 0.2s sep 0.9s | 6.7s
+  putaran   6: status=1 obj LP=3479.0000 | langgar maks=1.00e+00 | segitiga baru=90353 (dipakai 10000) | dibuang=0 | total segitiga=50000 | solve 0.3s sep 0.9s | 7.9s
+  putaran   7: status=1 obj LP=4089.5000 | langgar maks=1.00e+00 | segitiga baru=92503 (dipakai 10000) | dibuang=0 | total segitiga=60000 | solve 0.3s sep 0.9s | 9.2s
+  putaran   8: status=1 obj LP=5000.5000 | langgar maks=1.00e+00 | segitiga baru=94165 (dipakai 10000) | dibuang=0 | total segitiga=70000 | solve 0.3s sep 0.9s | 10.5s
+  putaran   9: status=1 obj LP=5986.0000 | langgar maks=1.00e+00 | segitiga baru=95784 (dipakai 10000) | dibuang=0 | total segitiga=80000 | solve 0.3s sep 0.9s | 11.8s
+  putaran  10: status=1 obj LP=6880.7500 | langgar maks=1.00e+00 | segitiga baru=98131 (dipakai 10000) | dibuang=0 | total segitiga=90000 | solve 0.3s sep 0.9s | 13.0s
+  putaran  11: status=1 obj LP=7968.7500 | langgar maks=1.00e+00 | segitiga baru=99071 (dipakai 10000) | dibuang=0 | total segitiga=100000 | solve 0.3s sep 1.0s | 14.5s
+  putaran  12: status=1 obj LP=8600.5000 | langgar maks=1.00e+00 | segitiga baru=99492 (dipakai 10000) | dibuang=0 | total segitiga=110000 | solve 0.4s sep 0.9s | 15.9s
+  putaran  13: status=1 obj LP=9553.2500 | langgar maks=1.00e+00 | segitiga baru=101134 (dipakai 10000) | dibuang=0 | total segitiga=120000 | solve 0.4s sep 0.9s | 17.4s
+  putaran  14: status=1 obj LP=10511.6346 | langgar maks=1.00e+00 | segitiga baru=103095 (dipakai 10000) | dibuang=0 | total segitiga=130000 | solve 0.6s sep 0.9s | 19.0s
+  putaran  15: status=1 obj LP=11411.0000 | langgar maks=1.00e+00 | segitiga baru=104272 (dipakai 10000) | dibuang=0 | total segitiga=140000 | solve 0.4s sep 0.9s | 20.5s
+  putaran  16: status=1 obj LP=12381.7031 | langgar maks=1.00e+00 | segitiga baru=105950 (dipakai 10000) | dibuang=0 | total segitiga=150000 | solve 0.9s sep 0.9s | 22.4s
+  putaran  17: status=1 obj LP=13346.2187 | langgar maks=1.00e+00 | segitiga baru=107229 (dipakai 10000) | dibuang=0 | total segitiga=160000 | solve 0.8s sep 0.9s | 24.2s
+  putaran  18: status=1 obj LP=14340.2005 | langgar maks=1.00e+00 | segitiga baru=109337 (dipakai 10000) | dibuang=0 | total segitiga=170000 | solve 1.2s sep 1.0s | 26.5s
+  putaran  19: status=1 obj LP=15378.0736 | langgar maks=1.00e+00 | segitiga baru=110453 (dipakai 10000) | dibuang=0 | total segitiga=180000 | solve 4.0s sep 0.9s | 31.5s
+  putaran  20: status=1 obj LP=16343.3073 | langgar maks=1.00e+00 | segitiga baru=111633 (dipakai 10000) | dibuang=0 | total segitiga=190000 | solve 2.9s sep 1.0s | 35.6s
+  putaran  21: status=1 obj LP=17234.5738 | langgar maks=1.00e+00 | segitiga baru=112999 (dipakai 10000) | dibuang=0 | total segitiga=200000 | solve 3.5s sep 1.0s | 40.3s
+  putaran  22: status=1 obj LP=17976.7200 | langgar maks=1.00e+00 | segitiga baru=114343 (dipakai 10000) | dibuang=0 | total segitiga=210000 | solve 6.1s sep 0.9s | 47.6s
+  putaran  23: status=1 obj LP=18684.1982 | langgar maks=1.00e+00 | segitiga baru=115173 (dipakai 10000) | dibuang=0 | total segitiga=220000 | solve 4.2s sep 1.0s | 53.0s
+  putaran  24: status=1 obj LP=19303.8242 | langgar maks=1.00e+00 | segitiga baru=116214 (dipakai 10000) | dibuang=0 | total segitiga=230000 | solve 5.2s sep 1.0s | 59.3s
+  putaran  25: status=1 obj LP=19885.5969 | langgar maks=1.00e+00 | segitiga baru=116986 (dipakai 10000) | dibuang=0 | total segitiga=240000 | solve 5.9s sep 1.0s | 66.5s
+  putaran  26: status=1 obj LP=20399.3517 | langgar maks=1.00e+00 | segitiga baru=117736 (dipakai 10000) | dibuang=0 | total segitiga=250000 | solve 5.3s sep 0.9s | 72.9s
+  putaran  27: status=1 obj LP=20932.2901 | langgar maks=1.00e+00 | segitiga baru=118622 (dipakai 10000) | dibuang=0 | total segitiga=260000 | solve 9.3s sep 1.0s | 83.4s
+  putaran  28: status=1 obj LP=21476.0275 | langgar maks=1.00e+00 | segitiga baru=119510 (dipakai 10000) | dibuang=0 | total segitiga=270000 | solve 7.4s sep 0.9s | 92.0s
+  putaran  29: status=1 obj LP=21940.6509 | langgar maks=1.00e+00 | segitiga baru=120406 (dipakai 10000) | dibuang=0 | total segitiga=280000 | solve 8.5s sep 0.9s | 101.7s
+  putaran  30: status=1 obj LP=22380.4795 | langgar maks=1.00e+00 | segitiga baru=120993 (dipakai 10000) | dibuang=0 | total segitiga=290000 | solve 6.6s sep 1.0s | 109.6s
+  putaran  31: status=1 obj LP=22812.2067 | langgar maks=1.00e+00 | segitiga baru=121550 (dipakai 10000) | dibuang=0 | total segitiga=300000 | solve 6.7s sep 1.0s | 117.6s
+  putaran  32: status=1 obj LP=23227.9004 | langgar maks=1.00e+00 | segitiga baru=122099 (dipakai 10000) | dibuang=0 | total segitiga=310000 | solve 6.0s sep 1.0s | 124.9s
+  putaran  33: status=1 obj LP=23668.2153 | langgar maks=1.00e+00 | segitiga baru=122430 (dipakai 10000) | dibuang=0 | total segitiga=320000 | solve 8.6s sep 1.0s | 134.8s
+  putaran  34: status=1 obj LP=24044.7982 | langgar maks=1.00e+00 | segitiga baru=123111 (dipakai 10000) | dibuang=0 | total segitiga=330000 | solve 15.3s sep 0.9s | 151.3s
+  putaran  35: status=1 obj LP=24412.3495 | langgar maks=1.00e+00 | segitiga baru=123425 (dipakai 10000) | dibuang=0 | total segitiga=340000 | solve 7.6s sep 0.9s | 160.1s
+  putaran  36: status=1 obj LP=24790.0432 | langgar maks=1.00e+00 | segitiga baru=123767 (dipakai 10000) | dibuang=0 | total segitiga=350000 | solve 13.2s sep 0.9s | 174.5s
+  putaran  37: status=1 obj LP=25152.4963 | langgar maks=1.00e+00 | segitiga baru=124247 (dipakai 10000) | dibuang=0 | total segitiga=360000 | solve 11.1s sep 1.0s | 186.9s
+  putaran  38: status=1 obj LP=25489.0182 | langgar maks=1.00e+00 | segitiga baru=124679 (dipakai 10000) | dibuang=0 | total segitiga=370000 | solve 8.5s sep 1.0s | 196.8s
+  putaran  39: status=1 obj LP=25803.1168 | langgar maks=1.00e+00 | segitiga baru=125006 (dipakai 10000) | dibuang=0 | total segitiga=380000 | solve 7.9s sep 0.9s | 206.0s
+  putaran  40: status=1 obj LP=26143.7540 | langgar maks=1.00e+00 | segitiga baru=125083 (dipakai 10000) | dibuang=0 | total segitiga=390000 | solve 6.0s sep 0.9s | 213.3s
+  putaran  41: status=1 obj LP=26460.8001 | langgar maks=1.00e+00 | segitiga baru=125649 (dipakai 10000) | dibuang=0 | total segitiga=400000 | solve 7.6s sep 1.0s | 222.3s
+  putaran  42: status=1 obj LP=26737.9727 | langgar maks=1.00e+00 | segitiga baru=125962 (dipakai 10000) | dibuang=0 | total segitiga=410000 | solve 13.2s sep 0.9s | 236.9s
+  putaran  43: status=1 obj LP=27036.3745 | langgar maks=1.00e+00 | segitiga baru=126206 (dipakai 10000) | dibuang=0 | total segitiga=420000 | solve 16.3s sep 0.9s | 254.5s
+  putaran  44: status=1 obj LP=27318.4034 | langgar maks=1.00e+00 | segitiga baru=126679 (dipakai 10000) | dibuang=0 | total segitiga=430000 | solve 10.1s sep 1.0s | 266.0s
+  putaran  45: status=1 obj LP=27564.0652 | langgar maks=1.00e+00 | segitiga baru=126919 (dipakai 10000) | dibuang=0 | total segitiga=440000 | solve 13.3s sep 1.0s | 280.7s
+  putaran  46: status=1 obj LP=27803.8195 | langgar maks=1.00e+00 | segitiga baru=126933 (dipakai 10000) | dibuang=0 | total segitiga=450000 | solve 15.3s sep 0.9s | 297.4s
+  putaran  47: status=1 obj LP=28005.9519 | langgar maks=1.00e+00 | segitiga baru=127267 (dipakai 10000) | dibuang=0 | total segitiga=460000 | solve 22.9s sep 1.0s | 321.7s
+  putaran  48: status=1 obj LP=28198.6660 | langgar maks=1.00e+00 | segitiga baru=127654 (dipakai 10000) | dibuang=0 | total segitiga=470000 | solve 9.0s sep 0.9s | 332.1s
+  putaran  49: status=1 obj LP=28378.5500 | langgar maks=1.00e+00 | segitiga baru=127333 (dipakai 10000) | dibuang=0 | total segitiga=480000 | solve 10.2s sep 0.9s | 343.7s
+  putaran  50: status=1 obj LP=28551.6359 | langgar maks=1.00e+00 | segitiga baru=127869 (dipakai 10000) | dibuang=0 | total segitiga=490000 | solve 18.1s sep 0.9s | 363.2s
+  putaran  51: status=1 obj LP=28706.3421 | langgar maks=1.00e+00 | segitiga baru=127304 (dipakai 10000) | dibuang=0 | total segitiga=500000 | solve 12.4s sep 1.0s | 377.1s
+  putaran  52: status=1 obj LP=28852.1641 | langgar maks=1.00e+00 | segitiga baru=127219 (dipakai 10000) | dibuang=0 | total segitiga=510000 | solve 11.3s sep 0.9s | 389.9s
+  putaran  53: status=1 obj LP=28996.0617 | langgar maks=1.00e+00 | segitiga baru=127642 (dipakai 10000) | dibuang=0 | total segitiga=520000 | solve 13.0s sep 0.9s | 404.3s
+  putaran  54: status=1 obj LP=29137.6067 | langgar maks=1.00e+00 | segitiga baru=127693 (dipakai 10000) | dibuang=0 | total segitiga=530000 | solve 17.0s sep 0.9s | 422.9s
+  putaran  55: status=1 obj LP=29307.0742 | langgar maks=1.00e+00 | segitiga baru=126998 (dipakai 10000) | dibuang=0 | total segitiga=540000 | solve 8.9s sep 1.0s | 433.3s
+  putaran  56: status=1 obj LP=29462.8891 | langgar maks=1.00e+00 | segitiga baru=126853 (dipakai 10000) | dibuang=0 | total segitiga=550000 | solve 15.7s sep 0.9s | 450.5s
+  putaran  57: status=1 obj LP=29649.7739 | langgar maks=1.00e+00 | segitiga baru=126134 (dipakai 10000) | dibuang=0 | total segitiga=560000 | solve 12.0s sep 0.9s | 464.0s
+  putaran  58: status=1 obj LP=29803.8714 | langgar maks=1.00e+00 | segitiga baru=126207 (dipakai 10000) | dibuang=0 | total segitiga=570000 | solve 18.5s sep 0.9s | 484.0s
+  putaran  59: status=1 obj LP=29945.6371 | langgar maks=1.00e+00 | segitiga baru=126038 (dipakai 10000) | dibuang=0 | total segitiga=580000 | solve 17.3s sep 1.0s | 502.9s
+  putaran  60: status=1 obj LP=30101.3508 | langgar maks=1.00e+00 | segitiga baru=125625 (dipakai 10000) | dibuang=0 | total segitiga=590000 | solve 27.7s sep 0.9s | 532.1s
+  putaran  61: status=1 obj LP=30253.7652 | langgar maks=1.00e+00 | segitiga baru=125155 (dipakai 10000) | dibuang=0 | total segitiga=600000 | solve 11.8s sep 0.9s | 545.4s
+  putaran  62: status=1 obj LP=30410.5127 | langgar maks=1.00e+00 | segitiga baru=124581 (dipakai 10000) | dibuang=0 | total segitiga=610000 | solve 19.2s sep 0.9s | 566.3s
+  putaran  63: status=1 obj LP=30585.8602 | langgar maks=1.00e+00 | segitiga baru=124096 (dipakai 10000) | dibuang=0 | total segitiga=620000 | solve 20.1s sep 0.9s | 587.9s
+  putaran  64: status=1 obj LP=30744.5568 | langgar maks=1.00e+00 | segitiga baru=123100 (dipakai 10000) | dibuang=0 | total segitiga=630000 | solve 16.9s sep 1.0s | 606.5s
+  putaran  65: status=1 obj LP=30826.8608 | langgar maks=1.00e+00 | segitiga baru=122357 (dipakai 10000) | dibuang=0 | total segitiga=640000 | solve 20.5s sep 0.9s | 628.6s
+  putaran  66: status=1 obj LP=30960.2388 | langgar maks=1.00e+00 | segitiga baru=120683 (dipakai 10000) | dibuang=0 | total segitiga=650000 | solve 19.0s sep 0.9s | 649.3s
+  putaran  67: status=1 obj LP=31059.9716 | langgar maks=1.00e+00 | segitiga baru=119831 (dipakai 10000) | dibuang=0 | total segitiga=660000 | solve 11.4s sep 0.9s | 662.3s
+  putaran  68: status=1 obj LP=31167.2147 | langgar maks=1.00e+00 | segitiga baru=119219 (dipakai 10000) | dibuang=0 | total segitiga=670000 | solve 17.0s sep 0.9s | 680.9s
+  putaran  69: status=1 obj LP=31299.0446 | langgar maks=1.00e+00 | segitiga baru=118637 (dipakai 10000) | dibuang=0 | total segitiga=680000 | solve 20.4s sep 0.9s | 702.9s
+  putaran  70: status=1 obj LP=31446.0393 | langgar maks=8.89e-01 | segitiga baru=117735 (dipakai 10000) | dibuang=0 | total segitiga=690000 | solve 12.3s sep 1.0s | 716.9s
+  putaran  71: status=1 obj LP=31617.9624 | langgar maks=1.00e+00 | segitiga baru=116777 (dipakai 10000) | dibuang=0 | total segitiga=700000 | solve 12.1s sep 0.9s | 730.6s
+  putaran  72: status=1 obj LP=31742.1053 | langgar maks=1.00e+00 | segitiga baru=115982 (dipakai 10000) | dibuang=0 | total segitiga=710000 | solve 17.3s sep 1.0s | 749.6s
+  putaran  73: status=1 obj LP=31881.1983 | langgar maks=8.65e-01 | segitiga baru=115680 (dipakai 10000) | dibuang=0 | total segitiga=720000 | solve 15.2s sep 1.0s | 766.5s
+  putaran  74: status=1 obj LP=32001.9626 | langgar maks=8.28e-01 | segitiga baru=113115 (dipakai 10000) | dibuang=0 | total segitiga=730000 | solve 25.0s sep 1.0s | 793.3s
+  putaran  75: status=1 obj LP=32097.0801 | langgar maks=7.33e-01 | segitiga baru=111438 (dipakai 10000) | dibuang=0 | total segitiga=740000 | solve 15.3s sep 0.9s | 810.4s
+  putaran  76: status=5 obj LP=32219.1704 | langgar maks=8.62e-01 | segitiga baru=108704 (dipakai 10000) | dibuang=0 | total segitiga=750000 | solve 6.9s sep 1.0s | 819.1s
+LP BERHENTI (batas waktu): obj=32219.1704 | 76 putaran | kendala segitiga aktif=760000 dari 135005184 (0.563%) | dibuang total=0 | waktu=819.9s
+PERINGATAN: LP belum konvergen; objektif bukan optimum LP penuh dan jaminan An et al. tidak berlaku untuk hasil pembulatan di bawah.
+Cek CPU: langgar segitiga maks=8.62e-01 | monoton=2.37e-07 | batas=0.00e+00
+Pembulatan (an2025): 0.1s | pre-cluster per lapisan=[431, 33] | k per lapisan=[431, 31] | cluster belum tuntas (diam>=1/3) per lapisan=[0, 0]
+
+Evaluasi (graf mean |E+|=81825, P25 |E+|=32960, P75 |E+|=98880, dari 131841 pasangan)
+  LP-Rounding HCC (lapisan 1)  k=431 Sil=-0.0909 Dunn=0.0134 Conn=1345.68 CC mean=79650 (60.4%) P25=30795 P75=96705 t=820.04s ukuran=[66, 5, 4, 3, 3, 3, 2, 2]...
+  LP-Rounding HCC              k= 31 Sil=-0.2956 Dunn=0.0098 Conn=131.87 CC mean=28112 (21.3%) P25=70959 P75=17521 t=820.04s ukuran=[453, 12, 8, 5, 4, 4, 2, 2]...
+  HC Average Linkage k=2       k=  2 Sil=0.7561 Dunn=0.1691 Conn=5.15 CC mean=46471 (35.2%) P25=95332 P75=29422 t=0.10s ukuran=[507, 7]
+  HC Average Linkage k=3       k=  3 Sil=0.5796 Dunn=0.1055 Conn=15.42 CC mean=39357 (29.9%) P25=87514 P75=23230 t=0.10s ukuran=[491, 16, 7]
+  HC Average Linkage k=4       k=  4 Sil=0.5358 Dunn=0.1148 Conn=18.60 CC mean=38383 (29.1%) P25=86536 P75=22292 t=0.10s ukuran=[489, 16, 7, 2]
+  HC Average Linkage k=5       k=  5 Sil=0.5197 Dunn=0.1148 Conn=21.63 CC mean=38368 (29.1%) P25=86521 P75=22283 t=0.10s ukuran=[489, 15, 7, 2, 1]
+  HC Average Linkage k=6       k=  6 Sil=0.4391 Dunn=0.1056 Conn=38.39 CC mean=32634 (24.8%) P25=79919 P75=18221 t=0.10s ukuran=[475, 15, 14, 7, 2, 1]
+  HC Average Linkage k=7       k=  7 Sil=0.4389 Dunn=0.1056 Conn=42.96 CC mean=32622 (24.7%) P25=79907 P75=18219 t=0.10s ukuran=[475, 15, 14, 4, 3, 2, 1]
+  HC Average Linkage k=8       k=  8 Sil=0.3917 Dunn=0.1056 Conn=45.90 CC mean=32594 (24.7%) P25=79857 P75=18215 t=0.10s ukuran=[475, 14, 9, 6, 4, 3, 2, 1]
+  HC Average Linkage k=9       k=  9 Sil=0.3225 Dunn=0.0376 Conn=63.08 CC mean=27508 (20.9%) P25=66359 P75=19373 t=0.10s ukuran=[441, 34, 14, 9, 6, 4, 3, 2]...
+  HC Average Linkage k=10      k= 10 Sil=0.2958 Dunn=0.0376 Conn=65.90 CC mean=27188 (20.6%) P25=65921 P75=19511 t=0.10s ukuran=[440, 34, 14, 9, 6, 4, 3, 2]...
+  HC Average Linkage k=31      k= 31 Sil=0.2518 Dunn=0.0485 Conn=197.57 CC mean=55779 (42.3%) P25=18960 P75=72660 t=0.10s ukuran=[187, 114, 53, 31, 19, 15, 13, 11]...
+  HC Average Linkage k=431     k=431 Sil=0.1318 Dunn=0.5542 Conn=1333.62 CC mean=81726 (62.0%) P25=32861 P75=98781 t=0.10s ukuran=[4, 3, 3, 3, 3, 3, 3, 3]...
+
+Tersimpan: hostinger_hasil/ablasi2/B_nasional2024_hasil.csv, _label_hcc.csv, _ringkasan.json, _log_lp.csv, _x_lp.npy

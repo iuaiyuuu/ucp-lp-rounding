@@ -1,0 +1,39 @@
+n=63 | variabel=['PDRB_ADHK', 'IPM', 'TPAK'] | pasangan=1953 | theta P25=1.0079 P75=2.7013 mean=2.0198 | metode=pdlp tol=1e-06 sep_tol=1e-05 per_pasangan=1 monoton=an2025 pembulatan=an2025 presisi=double row_elim=True maxcut=0 batas_waktu=900.0 subsampel=0 seed=0
+  putaran   1: status=1 obj LP=0.0000 | langgar maks=1.00e+00 | segitiga baru=899 | dibuang=0 | total segitiga=0 | solve 0.5s sep 0.3s | 0.8s
+  putaran   2: status=1 obj LP=83.5000 | langgar maks=1.00e+00 | segitiga baru=846 | dibuang=106 | total segitiga=899 | solve 0.2s sep 0.0s | 1.1s
+  putaran   3: status=1 obj LP=152.0000 | langgar maks=1.00e+00 | segitiga baru=882 | dibuang=279 | total segitiga=1639 | solve 0.1s sep 0.0s | 1.3s
+  putaran   4: status=1 obj LP=212.5000 | langgar maks=1.00e+00 | segitiga baru=844 | dibuang=348 | total segitiga=2242 | solve 0.1s sep 0.0s | 1.5s
+  putaran   5: status=1 obj LP=252.7500 | langgar maks=1.00e+00 | segitiga baru=939 | dibuang=414 | total segitiga=2738 | solve 0.1s sep 0.0s | 1.7s
+  putaran   6: status=1 obj LP=293.5000 | langgar maks=1.00e+00 | segitiga baru=943 | dibuang=338 | total segitiga=3263 | solve 0.2s sep 0.1s | 1.9s
+  putaran   7: status=1 obj LP=337.0000 | langgar maks=1.00e+00 | segitiga baru=824 | dibuang=447 | total segitiga=3868 | solve 0.2s sep 0.0s | 2.1s
+  putaran   8: status=1 obj LP=360.0000 | langgar maks=1.00e+00 | segitiga baru=1071 | dibuang=604 | total segitiga=4245 | solve 0.1s sep 0.0s | 2.3s
+  putaran   9: status=1 obj LP=382.0000 | langgar maks=1.00e+00 | segitiga baru=796 | dibuang=303 | total segitiga=4712 | solve 0.1s sep 0.0s | 2.5s
+  putaran  10: status=1 obj LP=402.5000 | langgar maks=1.00e+00 | segitiga baru=847 | dibuang=379 | total segitiga=5205 | solve 0.2s sep 0.0s | 2.7s
+  putaran  11: status=1 obj LP=418.0000 | langgar maks=1.00e+00 | segitiga baru=754 | dibuang=320 | total segitiga=5673 | solve 0.2s sep 0.0s | 2.9s
+  putaran  12: status=1 obj LP=426.9000 | langgar maks=1.00e+00 | segitiga baru=586 | dibuang=228 | total segitiga=6107 | solve 0.2s sep 0.1s | 3.1s
+  putaran  13: status=1 obj LP=433.5000 | langgar maks=1.00e+00 | segitiga baru=312 | dibuang=72 | total segitiga=6465 | solve 0.1s sep 0.0s | 3.3s
+  putaran  14: status=1 obj LP=437.5000 | langgar maks=1.00e+00 | segitiga baru=142 | dibuang=12 | total segitiga=6705 | solve 0.1s sep 0.0s | 3.5s
+  putaran  15: status=1 obj LP=441.5000 | langgar maks=1.00e+00 | segitiga baru=375 | dibuang=57 | total segitiga=6835 | solve 0.1s sep 0.0s | 3.7s
+  putaran  16: status=1 obj LP=445.5000 | langgar maks=5.76e-01 | segitiga baru=144 | dibuang=61 | total segitiga=7153 | solve 0.1s sep 0.0s | 3.9s
+  putaran  17: status=1 obj LP=446.5000 | langgar maks=7.00e-01 | segitiga baru=87 | dibuang=18 | total segitiga=7236 | solve 0.2s sep 0.0s | 4.1s
+  putaran  18: status=1 obj LP=447.0000 | langgar maks=5.00e-01 | segitiga baru=88 | dibuang=3 | total segitiga=7305 | solve 0.1s sep 0.0s | 4.3s
+  putaran  19: status=1 obj LP=447.5000 | langgar maks=4.75e-08 | segitiga baru=0 | dibuang=0 | total segitiga=7390 | solve 0.1s sep 0.0s | 4.5s
+LP selesai: obj=447.5000 | 19 putaran | kendala segitiga aktif=7390 dari 238266 (3.102%) | dibuang total=3989 | waktu=4.5s
+Cek CPU: langgar segitiga maks=4.75e-08 | monoton=0.00e+00 | batas=0.00e+00
+Pembulatan (an2025): 0.0s | pre-cluster per lapisan=[23, 4] | k per lapisan=[23, 4] | cluster belum tuntas (diam>=1/3) per lapisan=[0, 0]
+
+Evaluasi (graf mean |E+|=1145, P25 |E+|=488, P75 |E+|=1464, dari 1953 pasangan)
+  LP-Rounding HCC (lapisan 1)  k= 23 Sil=0.0103 Dunn=0.0441 Conn=78.59 CC mean=755 (38.7%) P25=214 P75=1074 t=4.48s ukuran=[27, 8, 4, 3, 2, 2, 1, 1]...
+  LP-Rounding HCC              k=  4 Sil=0.4011 Dunn=0.0528 Conn=14.83 CC mean=359 (18.4%) P25=892 P75=252 t=4.48s ukuran=[52, 9, 1, 1]
+  HC Average Linkage k=2       k=  2 Sil=0.7310 Dunn=0.7682 Conn=2.93 CC mean=746 (38.2%) P25=1403 P75=427 t=0.00s ukuran=[62, 1]
+  HC Average Linkage k=3       k=  3 Sil=0.4670 Dunn=0.2807 Conn=5.97 CC mean=697 (35.7%) P25=1342 P75=388 t=0.00s ukuran=[61, 1, 1]
+  HC Average Linkage k=4       k=  4 Sil=0.2751 Dunn=0.2807 Conn=9.00 CC mean=645 (33.0%) P25=1282 P75=370 t=0.00s ukuran=[60, 1, 1, 1]
+  HC Average Linkage k=5       k=  5 Sil=0.3885 Dunn=0.1388 Conn=18.12 CC mean=394 (20.2%) P25=579 P75=513 t=0.00s ukuran=[41, 19, 1, 1, 1]
+  HC Average Linkage k=6       k=  6 Sil=0.3620 Dunn=0.1829 Conn=21.11 CC mean=380 (19.5%) P25=503 P75=565 t=0.00s ukuran=[39, 19, 2, 1, 1, 1]
+  HC Average Linkage k=7       k=  7 Sil=0.3393 Dunn=0.1829 Conn=27.11 CC mean=424 (21.7%) P25=427 P75=649 t=0.00s ukuran=[39, 10, 9, 2, 1, 1, 1]
+  HC Average Linkage k=8       k=  8 Sil=0.3435 Dunn=0.2104 Conn=34.17 CC mean=526 (26.9%) P25=299 P75=839 t=0.00s ukuran=[33, 10, 9, 6, 2, 1, 1, 1]
+  HC Average Linkage k=9       k=  9 Sil=0.3642 Dunn=0.2470 Conn=36.65 CC mean=545 (27.9%) P25=284 P75=864 t=0.00s ukuran=[33, 9, 6, 5, 5, 2, 1, 1]...
+  HC Average Linkage k=10      k= 10 Sil=0.3456 Dunn=0.2470 Conn=39.32 CC mean=550 (28.2%) P25=279 P75=869 t=0.00s ukuran=[33, 9, 5, 5, 5, 2, 1, 1]...
+  HC Average Linkage k=23      k= 23 Sil=0.3315 Dunn=0.2210 Conn=87.10 CC mean=1002 (51.3%) P25=345 P75=1321 t=0.00s ukuran=[12, 10, 5, 4, 3, 3, 3, 2]...
+
+Tersimpan: hostinger_hasil/wilayah/C_maluku_papua_r3_hasil.csv, _label_hcc.csv, _ringkasan.json, _log_lp.csv, _x_lp.npy

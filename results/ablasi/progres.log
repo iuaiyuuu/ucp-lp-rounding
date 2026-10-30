@@ -1,0 +1,23 @@
+00:42:17 uji E jateng2022: LP selesai: obj=142.0000 | 14 putaran | kendala segitiga aktif=1909 dari 39270 (4.861%) | dibuang total=0 | waktu=3.1s
+00:42:36 jawa r1 B: LP selesai: obj=1723.5000 | 29 putaran | kendala segitiga aktif=51244 dari 1642914 (3.119%) | dibuang total=0 | waktu=16.6s
+00:42:59 jawa r1 D: LP selesai: obj=1723.5000 | 32 putaran | kendala segitiga aktif=33782 dari 1642914 (2.056%) | dibuang total=37284 | waktu=19.1s
+00:43:17 jawa r1 E: LP selesai: obj=1723.5000 | 31 putaran | kendala segitiga aktif=50838 dari 1642914 (3.094%) | dibuang total=0 | waktu=14.9s
+00:43:37 jawa r2 B: LP selesai: obj=1723.5000 | 29 putaran | kendala segitiga aktif=51244 dari 1642914 (3.119%) | dibuang total=0 | waktu=16.7s
+00:44:00 jawa r2 D: LP selesai: obj=1723.5000 | 32 putaran | kendala segitiga aktif=33782 dari 1642914 (2.056%) | dibuang total=37284 | waktu=19.4s
+00:44:18 jawa r2 E: LP selesai: obj=1723.5000 | 31 putaran | kendala segitiga aktif=50838 dari 1642914 (3.094%) | dibuang total=0 | waktu=14.9s
+00:44:38 jawa r3 B: LP selesai: obj=1723.5000 | 29 putaran | kendala segitiga aktif=51244 dari 1642914 (3.119%) | dibuang total=0 | waktu=16.6s
+00:45:00 jawa r3 D: LP selesai: obj=1723.5000 | 32 putaran | kendala segitiga aktif=33782 dari 1642914 (2.056%) | dibuang total=37284 | waktu=19.0s
+00:45:18 jawa r3 E: LP selesai: obj=1723.5000 | 31 putaran | kendala segitiga aktif=50838 dari 1642914 (3.094%) | dibuang total=0 | waktu=14.9s
+00:45:48 sumatera r1 B: LP selesai: obj=3271.5000 | 25 putaran | kendala segitiga aktif=100407 dari 3581424 (2.804%) | dibuang total=0 | waktu=27.4s
+00:46:17 sumatera r1 D: LP selesai: obj=3271.5000 | 28 putaran | kendala segitiga aktif=43849 dari 3581424 (1.224%) | dibuang total=97006 | waktu=24.9s
+00:46:34 sumatera r1 E: LP selesai: obj=3271.5000 | 24 putaran | kendala segitiga aktif=97981 dari 3581424 (2.736%) | dibuang total=0 | waktu=14.1s
+00:47:04 sumatera r2 B: LP selesai: obj=3271.5000 | 25 putaran | kendala segitiga aktif=100407 dari 3581424 (2.804%) | dibuang total=0 | waktu=27.3s
+00:47:32 sumatera r2 D: LP selesai: obj=3271.5000 | 28 putaran | kendala segitiga aktif=43849 dari 3581424 (1.224%) | dibuang total=97006 | waktu=24.6s
+00:47:49 sumatera r2 E: LP selesai: obj=3271.5000 | 24 putaran | kendala segitiga aktif=97981 dari 3581424 (2.736%) | dibuang total=0 | waktu=14.4s
+00:48:20 sumatera r3 B: LP selesai: obj=3271.5000 | 25 putaran | kendala segitiga aktif=100407 dari 3581424 (2.804%) | dibuang total=0 | waktu=27.6s
+00:48:48 sumatera r3 D: LP selesai: obj=3271.5000 | 28 putaran | kendala segitiga aktif=43849 dari 3581424 (1.224%) | dibuang total=97006 | waktu=24.5s
+00:49:05 sumatera r3 E: LP selesai: obj=3271.5000 | 24 putaran | kendala segitiga aktif=97981 dari 3581424 (2.736%) | dibuang total=0 | waktu=14.2s
+01:02:52 nasional B (batas 818 s): LP BERHENTI (batas waktu): obj=32219.1704 | 76 putaran | kendala segitiga aktif=760000 dari 135005184 (0.563%) | dibuang total=0 | waktu=819.9s
+01:16:34 nasional D (batas 814 s): LP BERHENTI (batas waktu): obj=32675.0779 | 130 putaran | kendala segitiga aktif=582112 dari 135005184 (0.431%) | dibuang total=717888 | waktu=816.4s
+01:20:42 nasional E (batas 806 s): LP selesai: obj=32729.7500 | 47 putaran | kendala segitiga aktif=1781956 dari 135005184 (1.320%) | dibuang total=0 | waktu=241.9s
+01:20:42 == ablasi2 selesai
