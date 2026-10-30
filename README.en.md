@@ -1,6 +1,6 @@
 # UCP-CR and UCP-TR: Efficient LP-Rounding for *Hierarchical Correlation Clustering* on 514 Indonesian Regencies and Cities
 
-[Bahasa Indonesia](README.id.md) | **English**
+[Bahasa Indonesia](README.md) | **English**
 
 This repository contains the dataset, code, experimental results, and figures of the thesis *Improving the Efficiency of LP-Rounding Hierarchical Correlation Clustering Using Ultrametric Cutting Plane with Constraint Reduction and Time Reduction on 514 Regencies/Cities in Indonesia in 2024* (original title in Indonesian: *Peningkatan Efisiensi LP-Rounding Hierarchical Correlation Clustering Menggunakan Ultrametric Cutting Plane dengan Constraint Reduction dan Time Reduction pada 514 Kabupaten/Kota di Indonesia Tahun 2024*).
 
