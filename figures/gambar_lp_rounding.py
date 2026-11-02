@@ -34,7 +34,7 @@ panah(y - 0.31, y - 0.62)
 
 # tahap 1: LP (dimodifikasi)
 g1_top = y - 0.62; g1_bot = g1_top - 1.8
-grup(g1_top, g1_bot, 'Tahap 1  Penyelesaian LP-(*)  →  bagian yang dimodifikasi penelitian ini')
+grup(g1_top, g1_bot, 'Tahap 1  Penyelesaian LP HCC  →  bagian yang dimodifikasi penelitian ini')
 yy = g1_top - 0.78
 kotak(CX, yy, 5.6, 0.72, r'Minimalkan Persamaan (2.5) terhadap kendala segitiga (2.6) dan kendala monoton (2.7)'
       '\n' r'Keluaran: jarak LP $\tilde{x}^{(t)}_{uv}$ dan objektif $LP^*$ (batas bawah biaya solusi terbaik)')

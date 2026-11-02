@@ -61,7 +61,7 @@ kotak(CX, yy, 1.75, 0.5, 'Jarak Euclidean\n(131.841 pasangan)', fs=FSS)
 kotak(CX + 1.95, yy, 1.75, 0.5, 'Graf bertanda 2 lapisan\n(ambang P25 dan P75)', fs=FSS)
 panah(g_bot, g_bot - 0.24)
 y = g_bot - 0.24 - 0.27
-kotak(CX, y, 4.3, 0.54, 'Perumusan LP-(*) An et al. (2025)\n263.682 variabel, 135.005.184 kendala segitiga', fs=FSS)
+kotak(CX, y, 4.3, 0.54, 'Perumusan LP HCC An et al. (2025)\n263.682 variabel, 135.005.184 kendala segitiga', fs=FSS)
 panah(y - 0.27, t2b - 0.18)
 
 # ---------------- Tahap 3: Eksperimen ----------------
