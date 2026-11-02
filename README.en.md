@@ -20,7 +20,7 @@ An et al. (2025) proved that their LP-Rounding algorithm for HCC costs at most 2
 
 ## What is studied
 
-The LP-Rounding algorithm of An et al. (2025) has two stages. The first stage solves the LP relaxation LP-(\*), and the second stage rounds the solution with *pre-clustering* (Algorithm 2) and hierarchical clustering (Algorithm 1). An et al. (2025) do not specify how to solve LP-(\*), and this is the stage this research works on.
+The LP-Rounding algorithm of An et al. (2025) has two stages. The first stage solves the LP relaxation for HCC, hereafter the HCC LP, and the second stage rounds the solution with *pre-clustering* (Algorithm 2) and hierarchical clustering (Algorithm 1). An et al. (2025) do not specify how to solve the HCC LP, and this is the stage this research works on.
 
 ![LP-Rounding stages and the part modified in this research](figures/gambar_lp_rounding.png)
 
@@ -49,9 +49,9 @@ The three research questions are:
 
 ## How the cutting plane works
 
-LP-(\*) is not given to the solver all at once. The LP starts without triangle constraints, and every round looks for violated triangle constraints and adds them.
+The HCC LP is not given to the solver all at once. The LP starts without triangle constraints, and every round looks for violated triangle constraints and adds them.
 
-An example of one real triangle from the 2024 data is shown below. In the fine layer, the pairs {u, v} and {u, p} are labelled + and {v, p} is labelled −. In the first round the solution is (0; 0; 1), which violates the constraint x_vp ≤ x_uv + x_up by 1. That constraint cuts the cube of x values, and the final baseline LP solution for these three regencies/cities is (0.5; 0.5; 1.0), exactly on the cutting plane. Every point on the cutting plane has the same cost, so LP-(\*) can have more than one optimal solution.
+An example of one real triangle from the 2024 data is shown below. In the fine layer, the pairs {u, v} and {u, p} are labelled + and {v, p} is labelled −. In the first round the solution is (0; 0; 1), which violates the constraint x_vp ≤ x_uv + x_up by 1. That constraint cuts the cube of x values, and the final baseline LP solution for these three regencies/cities is (0.5; 0.5; 1.0), exactly on the cutting plane. Every point on the cutting plane has the same cost, so the HCC LP can have more than one optimal solution.
 
 ![A triangle constraint as a cutting plane](figures/gambar_segitiga_kubus.png)
 
@@ -73,7 +73,7 @@ Where UCP-CR and UCP-TR act inside the cutting plane loop is shown below. The ba
 - **RQ1:** the LP was solved with only 1.33% of the 135,005,184 triangle constraints. The baseline hierarchical cost is 36,947, which is 1.129 times the LP lower bound, far below the theoretical guarantee of 25.7846.
 - **RQ2:** UCP-CR makes the LP 3.08 times smaller on the national data and 1.13 to 3.08 times smaller on all nine test instances. Its running time was unstable on the rented GPU, so UCP-CR is not claimed to be faster.
 - **RQ3:** UCP-TR is 3.80 times faster on the national data. UCP-TR is not faster at n = 35 (0.92 times, single run), and its speedup grows from 1.11 times at n = 119 to 3.80 times at n = 514.
-- The LP objective is the same for all three variants. The final partitions differ slightly (4 regions in layer 2 and 16 regions in layer 1), because LP-(\*) has more than one optimal solution.
+- The LP objective is the same for all three variants. The final partitions differ slightly (4 regions in layer 2 and 16 regions in layer 1), because the HCC LP has more than one optimal solution.
 
 ### LP objective per round
 

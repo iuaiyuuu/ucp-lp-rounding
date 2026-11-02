@@ -18,7 +18,7 @@ An et al. (2025) membuktikan bahwa algoritma LP-Rounding untuk HCC menghasilkan 
 
 ## Apa yang diteliti
 
-Algoritma LP-Rounding An et al. (2025) terdiri atas dua tahap. Tahap pertama menyelesaikan relaksasi LP-(\*), dan tahap kedua membulatkan solusinya dengan *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1). An et al. (2025) tidak menetapkan cara menyelesaikan LP-(\*), dan di tahap inilah penelitian ini bekerja.
+Algoritma LP-Rounding An et al. (2025) terdiri atas dua tahap. Tahap pertama menyelesaikan relaksasi LP untuk HCC, yang selanjutnya disebut LP HCC, dan tahap kedua membulatkan solusinya dengan *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1). An et al. (2025) tidak menetapkan cara menyelesaikan LP HCC, dan di tahap inilah penelitian ini bekerja.
 
 ![Tahap LP-Rounding dan bagian yang dimodifikasi](figures/gambar_lp_rounding.png)
 
@@ -47,9 +47,9 @@ Tiga pertanyaan penelitiannya:
 
 ## Cara kerja cutting plane
 
-LP-(\*) tidak dimasukkan sekaligus ke solver. LP dimulai tanpa kendala segitiga, lalu setiap putaran mencari kendala segitiga yang dilanggar dan menambahkannya.
+LP HCC tidak dimasukkan sekaligus ke solver. LP dimulai tanpa kendala segitiga, lalu setiap putaran mencari kendala segitiga yang dilanggar dan menambahkannya.
 
-Contoh satu segitiga nyata dari data 2024 ditunjukkan di bawah. Pada lapisan halus, pasangan {u, v} dan {u, p} bertanda +, sedangkan {v, p} bertanda −. Pada putaran pertama solusinya (0; 0; 1), yang melanggar kendala x_vp ≤ x_uv + x_up sebesar 1. Kendala itu memotong kubus nilai x, dan solusi akhir LP baseline untuk ketiga kabupaten/kota ini adalah (0,5; 0,5; 1,0), tepat pada bidang potong. Semua titik pada bidang potong memberi biaya yang sama, sehingga LP-(\*) dapat memiliki lebih dari satu solusi optimal.
+Contoh satu segitiga nyata dari data 2024 ditunjukkan di bawah. Pada lapisan halus, pasangan {u, v} dan {u, p} bertanda +, sedangkan {v, p} bertanda −. Pada putaran pertama solusinya (0; 0; 1), yang melanggar kendala x_vp ≤ x_uv + x_up sebesar 1. Kendala itu memotong kubus nilai x, dan solusi akhir LP baseline untuk ketiga kabupaten/kota ini adalah (0,5; 0,5; 1,0), tepat pada bidang potong. Semua titik pada bidang potong memberi biaya yang sama, sehingga LP HCC dapat memiliki lebih dari satu solusi optimal.
 
 ![Kendala segitiga sebagai bidang potong](figures/gambar_segitiga_kubus.png)
 
@@ -71,7 +71,7 @@ Letak langkah UCP-CR dan UCP-TR di dalam putaran cutting plane ditunjukkan di ba
 - **RQ1:** LP selesai dengan hanya 1,33% dari 135.005.184 kendala segitiga. Biaya hierarkis baseline 36.947, yaitu 1,129 kali batas bawah LP, jauh di bawah jaminan teoretis 25,7846.
 - **RQ2:** UCP-CR memperkecil LP 3,08 kali pada data nasional dan 1,13 sampai 3,08 kali pada kesembilan instans uji. Waktunya tidak stabil di GPU sewaan, sehingga UCP-CR tidak diklaim lebih cepat.
 - **RQ3:** UCP-TR 3,80 kali lebih cepat pada data nasional. UCP-TR tidak lebih cepat pada n = 35 (0,92 kali, satu kali jalan), dan percepatannya bertambah dari 1,11 kali pada n = 119 menjadi 3,80 kali pada n = 514.
-- Objektif LP ketiga varian sama. Partisi akhir sedikit berbeda (4 daerah pada lapisan 2 dan 16 daerah pada lapisan 1), karena LP-(\*) memiliki lebih dari satu solusi optimal.
+- Objektif LP ketiga varian sama. Partisi akhir sedikit berbeda (4 daerah pada lapisan 2 dan 16 daerah pada lapisan 1), karena LP HCC memiliki lebih dari satu solusi optimal.
 
 ### Objektif LP per putaran
 
