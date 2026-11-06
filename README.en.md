@@ -66,7 +66,7 @@ Where UCP-CR and UCP-TR act inside the cutting plane loop is shown below. The ba
 | LP objective | 32,729.75 | 32,729.75 | 32,729.75 |
 | Cutting plane rounds | 42 | 69 | 47 |
 | Final active triangle constraints | 1,794,833 | 583,684 (3.08 times smaller) | 1,781,956 |
-| LP time, median of two runs | 920.6 s | 775.0 s (542.8 and 1,007.2 s) | 242.4 s (3.80 times faster) |
+| LP time, median of two runs | 920.5 s | 775.0 s (542.8 and 1,007.2 s) | 242.3 s (3.80 times faster) |
 | Clusters in layer 1 / layer 2 | 248 / 15 | 243 / 15 | 243 / 15 |
 | Layer-2 CC disagreements on the mean-distance graph | 28,445 | 28,445 | 28,445 |
 

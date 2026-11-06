@@ -64,7 +64,7 @@ Letak langkah UCP-CR dan UCP-TR di dalam putaran cutting plane ditunjukkan di ba
 | Objektif LP | 32.729,75 | 32.729,75 | 32.729,75 |
 | Putaran cutting plane | 42 | 69 | 47 |
 | Kendala segitiga aktif akhir | 1.794.833 | 583.684 (3,08 kali lebih kecil) | 1.781.956 |
-| Waktu LP, median dua ulangan | 920,6 s | 775,0 s (542,8 dan 1.007,2 s) | 242,4 s (3,80 kali lebih cepat) |
+| Waktu LP, median dua ulangan | 920,5 s | 775,0 s (542,8 dan 1.007,2 s) | 242,3 s (3,80 kali lebih cepat) |
 | Kelompok lapisan 1 / lapisan 2 | 248 / 15 | 243 / 15 | 243 / 15 |
 | CC lapisan 2 pada graf ambang rata-rata | 28.445 | 28.445 | 28.445 |
 
