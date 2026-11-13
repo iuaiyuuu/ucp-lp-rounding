@@ -24,7 +24,7 @@ The LP-Rounding algorithm of An et al. (2025) has two stages. The first stage so
 
 ![LP-Rounding stages and the part modified in this research](figures/gambar_lp_rounding.png)
 
-- **Baseline:** the LP-Rounding algorithm of An et al. (2025) on the same dataset. Its LP is solved with a standard cutting plane method (Grötschel and Wakabayashi, 1989) and PDLP on the GPU, without modification.
+- **An et al. (2025):** the LP-Rounding algorithm of An et al. (2025) on the same dataset, used as the reference. Its LP is solved with a standard cutting plane method (Grötschel and Wakabayashi, 1989) and PDLP on the GPU, without modification. Result files and some figures still label it "Baseline".
 - **UCP-CR** (*Ultrametric Cutting Plane with Constraint Reduction*): removes inactive triangle constraints before the LP is solved again, and locks every removed constraint so that each constraint is removed at most once.
 - **UCP-TR** (*Ultrametric Cutting Plane with Time Reduction*): solves the LP with tolerance 10⁻⁴ until no new constraint is found, then finishes at 10⁻⁶.
 
@@ -43,7 +43,7 @@ The three research questions are:
 1. **Data:** 2024 GRDP, HDI, and labour force participation rate for 514 regencies/cities from BPS.
 2. **Preprocessing:** the three variables are standardised with z-scores, then Euclidean distances are computed for 131,841 pairs.
 3. **Two-layer signed graph:** pairs closer than the 25th percentile (θ₁ = 1.0204) are labelled + in the fine layer, and pairs closer than the 75th percentile (θ₂ = 2.4285) are labelled + in the coarse layer.
-4. **Solving the LP:** cutting plane with PDLP on the GPU in three variants (baseline, UCP-CR, UCP-TR), followed by a double-precision check of every constraint on the CPU.
+4. **Solving the LP:** cutting plane with PDLP on the GPU in three variants (An et al. (2025), UCP-CR, UCP-TR), followed by a double-precision check of every constraint on the CPU.
 5. **Rounding:** the algorithm of An et al. (2025), unchanged.
 6. **Evaluation:** LP time and size, LP objective, constraint violation, CC disagreements, Silhouette, Dunn Index, Connectivity, and the ratio of the cost to the LP lower bound. The effect of data size is tested on instances from 35 to 514 regencies/cities.
 
@@ -51,17 +51,34 @@ The three research questions are:
 
 The HCC LP is not given to the solver all at once. The LP starts without triangle constraints, and every round looks for violated triangle constraints and adds them.
 
-An example of one real triangle from the 2024 data is shown below. In the fine layer, the pairs {u, v} and {u, p} are labelled + and {v, p} is labelled −. In the first round the solution is (0; 0; 1), which violates the constraint x_vp ≤ x_uv + x_up by 1. That constraint cuts the cube of x values, and the final baseline LP solution for these three regencies/cities is (0.5; 0.5; 1.0), exactly on the cutting plane. Every point on the cutting plane has the same cost, so the HCC LP can have more than one optimal solution.
+An example of one real triangle from the 2024 data is shown below. In the fine layer, the pairs {u, v} and {u, p} are labelled + and {v, p} is labelled −. In the first round the solution is (0; 0; 1), which violates the constraint x_vp ≤ x_uv + x_up by 1. That constraint cuts the cube of x values, and the final LP solution of An et al. (2025) for these three regencies/cities is (0.5; 0.5; 1.0), exactly on the cutting plane. Every point on the cutting plane has the same cost, so the HCC LP can have more than one optimal solution.
 
 ![A triangle constraint as a cutting plane](figures/gambar_segitiga_kubus.png)
 
-Where UCP-CR and UCP-TR act inside the cutting plane loop is shown below. The baseline follows the path without dashed boxes. UCP-CR adds a removal-with-locking step before new constraints are added, and UCP-TR adds a tolerance-tightening branch when separation finds no new constraint.
+Where UCP-CR and UCP-TR act inside the cutting plane loop is shown below. The implementation of An et al. (2025), labelled "Baseline" in the figure, follows the path without dashed boxes. UCP-CR adds a removal-with-locking step before new constraints are added, and UCP-TR adds a tolerance-tightening branch when separation finds no new constraint.
 
-![Cutting plane loop for the baseline, UCP-CR, and UCP-TR](figures/gambar_cutting_plane.png)
+![Cutting plane loop for An et al. (2025), UCP-CR, and UCP-TR](figures/gambar_cutting_plane.png)
+
+## How this repository uses NVIDIA cuOpt
+
+This research uses [NVIDIA cuOpt](https://github.com/NVIDIA/cuopt) as the LP solver, through its Python interface (`cuopt.linear_programming`). No cuOpt code is modified.
+
+| Step | What is used |
+|---|---|
+| Building the LP | `DataModel` with a CSR constraint matrix. The LP is rebuilt every round from the constraints that are currently active. |
+| Solving the LP | `Solve` with the PDLP method on the GPU in double precision (`CUOPT_PDLP_PRECISION`). All six PDLP tolerances (primal, dual, and gap; absolute and relative) are set to the same value. |
+| Starting point | The primal solution of the previous round (`set_initial_primal_solution`). |
+| Finding violated constraints | On the GPU with CuPy: for every pair, the most violating third point is found, with a threshold of 10⁻⁵. |
+| Final check | All 135,005,184 triangle constraints are checked again on the CPU in double precision. |
+
+PDLP is a first-order method, so its solution is an approximation at the requested tolerance. Two consequences follow, and they are the reasons for UCP-CR and UCP-TR:
+
+- **Why removed constraints must be locked (UCP-CR).** A constraint that was just removed can appear violated again by roughly the solver tolerance, and then re-enter. In an early test on the Central Java data, removal without locking cycled without end, with violations of about 10⁻⁴. With locking, each constraint is removed at most once, so the loop must stop. On the national data there were 2,508,999 removals, and 265,765 constraints (10.6%) re-entered.
+- **Why the tolerance has two stages (UCP-TR).** First-order methods slow down when pushed to high accuracy (Applegate et al., 2021). While constraints are still being added, high accuracy is not yet needed. UCP-TR uses 10⁻⁴ until no new constraint is found, then finishes at 10⁻⁶. The heaviest round drops from 81.5 seconds to 8.2 seconds.
 
 ## Main results (national data, n = 514)
 
-| Measure | Baseline | UCP-CR | UCP-TR |
+| Measure | An et al. (2025) | UCP-CR | UCP-TR |
 |---|---|---|---|
 | LP objective | 32,729.75 | 32,729.75 | 32,729.75 |
 | Cutting plane rounds | 42 | 69 | 47 |
@@ -70,10 +87,11 @@ Where UCP-CR and UCP-TR act inside the cutting plane loop is shown below. The ba
 | Clusters in layer 1 / layer 2 | 248 / 15 | 243 / 15 | 243 / 15 |
 | Layer-2 CC disagreements on the mean-distance graph | 28,445 | 28,445 | 28,445 |
 
-- **RQ1:** the LP was solved with only 1.33% of the 135,005,184 triangle constraints. The baseline hierarchical cost is 36,947, which is 1.129 times the LP lower bound, far below the theoretical guarantee of 25.7846.
+- **RQ1:** the LP was solved with only 1.33% of the 135,005,184 triangle constraints. The hierarchical cost of An et al. (2025) is 36,947, which is 1.129 times the LP lower bound, far below the theoretical guarantee of 25.7846.
 - **RQ2:** UCP-CR makes the LP 3.08 times smaller on the national data and 1.13 to 3.08 times smaller on all nine test instances. Its running time was unstable on the rented GPU, so UCP-CR is not claimed to be faster.
 - **RQ3:** UCP-TR is 3.80 times faster on the national data. UCP-TR is not faster at n = 35 (0.92 times, single run), and its speedup grows from 1.11 times at n = 119 to 3.80 times at n = 514.
-- The LP objective is the same for all three variants. The final partitions differ slightly (4 regions in layer 2 and 16 regions in layer 1), because the HCC LP has more than one optimal solution.
+- The LP objective is the same for all three variants, differing by at most 1.4 × 10⁻⁶. Of the 263,682 variables, 262,111 (99.4%) take the value 0, ½, or 1 and are identical in all three variants. Every difference lies in the remaining 1,571 variables (0.6%).
+- The final partitions differ slightly (4 regions in layer 2 and 16 regions in layer 1), because the HCC LP has more than one optimal solution.
 
 ### LP objective per round
 
@@ -83,7 +101,7 @@ The LP objective rises every time violated triangle constraints are added, then 
 
 ### LP size per round (UCP-CR)
 
-For the baseline and UCP-TR the number of constraints keeps growing to about 1.79 million. For UCP-CR it never exceeds 0.59 million because inactive constraints are removed.
+For An et al. (2025) and UCP-TR the number of constraints keeps growing to about 1.79 million. For UCP-CR it never exceeds 0.59 million because inactive constraints are removed.
 
 ![Triangle constraints in the LP per round](figures/gambar_jejak_kendala.png)
 
@@ -97,12 +115,12 @@ The UCP-TR curve rises most slowly because its early rounds are solved at tolera
 
 | Path | Contents |
 |---|---|
-| `hcc_nasional_cuopt.py` | Cutting plane + PDLP (cuOpt) on the GPU, the baseline, UCP-CR, and UCP-TR variants, rounding, and metrics |
+| `hcc_nasional_cuopt.py` | Cutting plane + PDLP (cuOpt) on the GPU, the An et al. (2025), UCP-CR, and UCP-TR variants, rounding, and metrics |
 | `hcc_rounding_an2025.py` | Rounding of An et al. (2025): *pre-clustering* (Algorithm 2) and hierarchical clustering (Algorithm 1) |
 | `test_rounding_an2025.py` | Tests for the rounding and the direction of the monotone constraints (CPU, HiGHS) |
 | `data/` | National 2024 dataset, Central Java 2022 dataset, and seven regional 2024 instances |
-| `results/nasional/` | Baseline (A, A2) and UCP-CR (C, C2) on the national data, two runs each; LP solutions `*_x_lp.npy` for A and C |
-| `results/wilayah/` | Baseline and UCP-CR on eight test instances, three runs each |
+| `results/nasional/` | An et al. (2025) (A, A2) and UCP-CR (C, C2) on the national data, two runs each; LP solutions `*_x_lp.npy` for A and C |
+| `results/wilayah/` | An et al. (2025) and UCP-CR on eight test instances, three runs each |
 | `results/ablasi/` | UCP-TR (E, E2), UCP-CR and UCP-TR combined (CE), and variants that cap new constraints at 10,000 per round (B, D) |
 | `scripts/` | Scripts run on the GPU server |
 | `figures/` | Thesis figures with the scripts that create them, and a screenshot of the server panel |
@@ -124,7 +142,7 @@ The data source is Statistics Indonesia (Badan Pusat Statistik, BPS). GRDP and H
 Requirements: an NVIDIA GPU, Python 3.12, NVIDIA cuOpt 26.10 (`cuopt-cu12` or `cuopt-cu13`, depending on the driver), and the packages in `requirements.txt`. The script `scripts/setup_server.sh` prepares the environment on Ubuntu.
 
 ```bash
-# baseline
+# An et al. (2025)
 python hcc_nasional_cuopt.py data/dataset_nasional_2024.csv PDRB_ADHK,IPM,TPAK results/nasional/A_nasional2024 \
     --monoton an2025 --pembulatan an2025 --presisi double --tol 1e-6
 # UCP-CR
@@ -144,6 +162,43 @@ python test_rounding_an2025.py
 python figures/gambar_jejak_cutting_plane.py
 python figures/gambar_segitiga_kubus.py
 ```
+
+## Glossary of options and output names
+
+The script was written for an Indonesian thesis, so its option names, file names, and output columns are in Indonesian. They are kept unchanged so that the commands recorded in the result logs still run. The tables below give their meaning.
+
+| Option | Meaning |
+|---|---|
+| `--metode` | LP method: `pdlp` (default), `barrier`, `dualsimplex`, or `concurrent` |
+| `--tol` | Final PDLP tolerance |
+| `--tol-awal` | Initial (loose) tolerance, used until no new constraint is found; this switches on UCP-TR |
+| `--sep-tol` | Separation threshold: a triangle constraint counts as violated above this value |
+| `--row-elim` | Remove inactive triangle constraints, each at most once; this switches on UCP-CR |
+| `--row-elim-tol` | Slack beyond which a constraint counts as inactive |
+| `--per-pasangan` | Number of most violating third points added per pair per round |
+| `--maxcut` | Maximum number of new constraints per round (0 = no limit) |
+| `--max-putaran` | Maximum number of cutting plane rounds |
+| `--batas-waktu` | Time limit for the LP stage, in seconds (0 = no limit) |
+| `--presisi` | PDLP precision mode: `default`, `double`, `mixed`, or `single` |
+| `--monoton` | Direction of the layer (monotonicity) constraints; `an2025` follows An et al. (2025) |
+| `--pembulatan` | Rounding implementation; `an2025` follows the text of An et al. (2025) |
+| `--max-iter-pc` | Iteration limit of the older pre-clustering code (only with `--pembulatan paper`) |
+| `--subsampel`, `--seed` | Take a random subset of rows, and its random seed |
+| `--checkpoint`, `--resume` | Save the state every round, and continue from a saved state |
+
+| Name in files and columns | Meaning |
+|---|---|
+| `nasional`, `wilayah`, `ablasi` | national, regional, ablation |
+| `ringkasan`, `hasil`, `label_hcc`, `log_lp` | summary, metrics, cluster labels, per-round LP log |
+| Run prefixes `A`, `C`, `E` | An et al. (2025), UCP-CR, UCP-TR (a trailing `2` marks the second run) |
+| Run prefixes `B`, `D`, `CE` | An et al. (2025) and UCP-CR with at most 10,000 new constraints per round (`B`, `D`), and UCP-CR combined with UCP-TR (`CE`) |
+| `putaran` | round |
+| `obj` | LP objective |
+| `langgar_maks` | largest violation found by separation |
+| `baru`, `dipakai`, `dibuang` | constraints found, added, and removed in the round |
+| `total_segitiga` | triangle constraints in the LP |
+| `t_solve`, `t_sep`, `t_kumulatif` | solve time, separation time, and cumulative time, in seconds |
+| `lapisan` | layer (1 = fine, 2 = coarse) |
 
 ## Server specification
 

@@ -4,7 +4,7 @@
 
 Repositori ini memuat dataset, kode, hasil eksperimen, dan gambar dari tesis *Peningkatan Efisiensi LP-Rounding Hierarchical Correlation Clustering Menggunakan Ultrametric Cutting Plane dengan Constraint Reduction dan Time Reduction pada 514 Kabupaten/Kota di Indonesia Tahun 2024*.
 
-**Ringkasnya:** penelitian ini menerapkan algoritma clustering LP-Rounding An et al. (2025), yang dalam publikasinya hanya dianalisis secara teoretis, pada data nyata seluruh kabupaten/kota di Indonesia, lalu mengusulkan dua cara agar LP di dalam algoritma itu lebih kecil (UCP-CR) dan lebih cepat diselesaikan (UCP-TR) tanpa mengubah objektif LP.
+**Ringkasnya:** penelitian ini menerapkan algoritma clustering LP-Rounding An dkk. (2025), yang dalam publikasinya hanya dianalisis secara teoretis, pada data nyata seluruh kabupaten/kota di Indonesia, lalu mengusulkan dua cara agar LP di dalam algoritma itu lebih kecil (UCP-CR) dan lebih cepat diselesaikan (UCP-TR) tanpa mengubah objektif LP.
 
 **Perangkat keras:** satu GPU NVIDIA A100 80 GB PCIe (sewaan, Hostinger, Reading, Britania Raya) dengan kuota 4 inti CPU AMD EPYC 7713P dan RAM 8 GB. Rincian ada di bagian [Spesifikasi server](#spesifikasi-server).
 
@@ -14,23 +14,23 @@ Pembangunan kabupaten/kota di Indonesia tidak seragam, dan kondisi suatu daerah 
 
 Pengelompokan dilakukan dengan *hierarchical correlation clustering* (HCC). Setiap pasangan kabupaten/kota diberi label mirip (+) atau tidak mirip (−), lalu dicari kelompok bertingkat yang paling sedikit melanggar label tersebut. Hasilnya berupa dua lapisan kelompok: lapisan halus dan lapisan kasar, dengan setiap kelompok halus berada di dalam satu kelompok kasar.
 
-An et al. (2025) membuktikan bahwa algoritma LP-Rounding untuk HCC menghasilkan biaya paling besar 25,7846 kali biaya solusi terbaik, tetapi penelitian itu murni teoretis. Hambatan utamanya adalah ukuran LP. Untuk 514 kabupaten/kota dan dua lapisan, LP memuat 263.682 variabel dan 135.005.184 kendala segitiga.
+An dkk. (2025) membuktikan bahwa algoritma LP-Rounding untuk HCC menghasilkan biaya paling besar 25,7846 kali biaya solusi terbaik, tetapi penelitian itu murni teoretis. Hambatan utamanya adalah ukuran LP. Untuk 514 kabupaten/kota dan dua lapisan, LP memuat 263.682 variabel dan 135.005.184 kendala segitiga.
 
 ## Apa yang diteliti
 
-Algoritma LP-Rounding An et al. (2025) terdiri atas dua tahap. Tahap pertama menyelesaikan relaksasi LP untuk HCC, yang selanjutnya disebut LP HCC, dan tahap kedua membulatkan solusinya dengan *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1). An et al. (2025) tidak menetapkan cara menyelesaikan LP HCC, dan di tahap inilah penelitian ini bekerja.
+Algoritma LP-Rounding An dkk. (2025) terdiri atas dua tahap. Tahap pertama menyelesaikan relaksasi LP untuk HCC, yang selanjutnya disebut LP HCC, dan tahap kedua membulatkan solusinya dengan *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1). An dkk. (2025) tidak menetapkan cara menyelesaikan LP HCC, dan di tahap inilah penelitian ini bekerja.
 
 ![Tahap LP-Rounding dan bagian yang dimodifikasi](figures/gambar_lp_rounding.png)
 
-- **Baseline:** LP-Rounding An et al. (2025) pada dataset yang sama. LP-nya diselesaikan dengan cutting plane standar (Grötschel dan Wakabayashi, 1989) dan PDLP di GPU tanpa modifikasi.
+- **An dkk. (2025):** LP-Rounding An dkk. (2025) pada dataset yang sama, sebagai pembanding. LP-nya diselesaikan dengan cutting plane standar (Grötschel dan Wakabayashi, 1989) dan PDLP di GPU tanpa modifikasi. Pada berkas hasil dan sebagian gambar, cara ini masih berlabel "Baseline".
 - **UCP-CR** (*Ultrametric Cutting Plane with Constraint Reduction*): membuang kendala segitiga yang tidak aktif sebelum LP diselesaikan ulang, lalu mengunci kendala yang sudah dibuang sehingga setiap kendala paling banyak dibuang satu kali.
 - **UCP-TR** (*Ultrametric Cutting Plane with Time Reduction*): menyelesaikan LP dengan toleransi 10⁻⁴ sampai tidak ada kendala baru, lalu menuntaskannya pada 10⁻⁶.
 
-UCP-CR dan UCP-TR hanya mengubah tahap penyelesaian LP. Tahap pembulatan An et al. dipakai tanpa perubahan. Penelitian ini membahas efisiensi penyelesaian LP, bukan perbandingan mutu hasil clustering antaralgoritma.
+UCP-CR dan UCP-TR hanya mengubah tahap penyelesaian LP. Tahap pembulatan An dkk. dipakai tanpa perubahan. Penelitian ini membahas efisiensi penyelesaian LP, bukan perbandingan mutu hasil clustering antaralgoritma.
 
 Tiga pertanyaan penelitiannya:
 
-1. Bagaimana LP-Rounding An et al. (2025) dapat diterapkan pada 514 kabupaten/kota, dan seberapa jauh biaya hasilnya dari batas teori?
+1. Bagaimana LP-Rounding An dkk. (2025) dapat diterapkan pada 514 kabupaten/kota, dan seberapa jauh biaya hasilnya dari batas teori?
 2. Bisakah ukuran LP diperkecil tanpa mengubah objektif LP? (UCP-CR)
 3. Bisakah LP diselesaikan lebih cepat tanpa mengubah objektif LP? (UCP-TR)
 
@@ -41,25 +41,42 @@ Tiga pertanyaan penelitiannya:
 1. **Data:** PDRB ADHK, IPM, dan TPAK tahun 2024 untuk 514 kabupaten/kota dari BPS.
 2. **Praproses:** ketiga variabel dinormalisasi dengan skor-z, lalu dihitung jarak Euclidean untuk 131.841 pasangan.
 3. **Graf bertanda dua lapisan:** pasangan dengan jarak di bawah persentil ke-25 (θ₁ = 1,0204) diberi label + pada lapisan halus, dan di bawah persentil ke-75 (θ₂ = 2,4285) diberi label + pada lapisan kasar.
-4. **Penyelesaian LP:** cutting plane dengan PDLP di GPU dalam tiga varian (baseline, UCP-CR, UCP-TR), lalu seluruh kendala diperiksa ulang di CPU dengan presisi ganda.
-5. **Pembulatan:** algoritma An et al. (2025) tanpa perubahan.
+4. **Penyelesaian LP:** cutting plane dengan PDLP di GPU dalam tiga varian (An dkk. (2025), UCP-CR, UCP-TR), lalu seluruh kendala diperiksa ulang di CPU dengan presisi ganda.
+5. **Pembulatan:** algoritma An dkk. (2025) tanpa perubahan.
 6. **Evaluasi:** waktu dan ukuran LP, objektif LP, pelanggaran kendala, CC disagreements, Silhouette, Dunn Index, Connectivity, dan rasio biaya terhadap batas bawah LP. Pengaruh ukuran data diuji pada instans uji dari 35 sampai 514 kabupaten/kota.
 
 ## Cara kerja cutting plane
 
 LP HCC tidak dimasukkan sekaligus ke solver. LP dimulai tanpa kendala segitiga, lalu setiap putaran mencari kendala segitiga yang dilanggar dan menambahkannya.
 
-Contoh satu segitiga nyata dari data 2024 ditunjukkan di bawah. Pada lapisan halus, pasangan {u, v} dan {u, p} bertanda +, sedangkan {v, p} bertanda −. Pada putaran pertama solusinya (0; 0; 1), yang melanggar kendala x_vp ≤ x_uv + x_up sebesar 1. Kendala itu memotong kubus nilai x, dan solusi akhir LP baseline untuk ketiga kabupaten/kota ini adalah (0,5; 0,5; 1,0), tepat pada bidang potong. Semua titik pada bidang potong memberi biaya yang sama, sehingga LP HCC dapat memiliki lebih dari satu solusi optimal.
+Contoh satu segitiga nyata dari data 2024 ditunjukkan di bawah. Pada lapisan halus, pasangan {u, v} dan {u, p} bertanda +, sedangkan {v, p} bertanda −. Pada putaran pertama solusinya (0; 0; 1), yang melanggar kendala x_vp ≤ x_uv + x_up sebesar 1. Kendala itu memotong kubus nilai x, dan solusi akhir LP An dkk. (2025) untuk ketiga kabupaten/kota ini adalah (0,5; 0,5; 1,0), tepat pada bidang potong. Semua titik pada bidang potong memberi biaya yang sama, sehingga LP HCC dapat memiliki lebih dari satu solusi optimal.
 
 ![Kendala segitiga sebagai bidang potong](figures/gambar_segitiga_kubus.png)
 
-Letak langkah UCP-CR dan UCP-TR di dalam putaran cutting plane ditunjukkan di bawah. Baseline melewati jalur tanpa kotak putus-putus. UCP-CR menambahkan langkah pemangkasan dengan penguncian sebelum kendala baru dimasukkan, sedangkan UCP-TR menambahkan cabang pengetatan toleransi ketika separasi tidak lagi menemukan kendala baru.
+Letak langkah UCP-CR dan UCP-TR di dalam putaran cutting plane ditunjukkan di bawah. Implementasi An dkk. (2025), yang pada gambar berlabel "Baseline", melewati jalur tanpa kotak putus-putus. UCP-CR menambahkan langkah pemangkasan dengan penguncian sebelum kendala baru dimasukkan, sedangkan UCP-TR menambahkan cabang pengetatan toleransi ketika separasi tidak lagi menemukan kendala baru.
 
-![Putaran cutting plane pada baseline, UCP-CR, dan UCP-TR](figures/gambar_cutting_plane.png)
+![Putaran cutting plane pada An dkk. (2025), UCP-CR, dan UCP-TR](figures/gambar_cutting_plane.png)
+
+## Cara repositori ini memakai NVIDIA cuOpt
+
+Penelitian ini memakai [NVIDIA cuOpt](https://github.com/NVIDIA/cuopt) sebagai penyelesai LP, lewat antarmuka Python-nya (`cuopt.linear_programming`). Tidak ada kode cuOpt yang diubah.
+
+| Langkah | Yang dipakai |
+|---|---|
+| Menyusun LP | `DataModel` dengan matriks kendala CSR. LP disusun ulang setiap putaran dari kendala yang sedang aktif. |
+| Menyelesaikan LP | `Solve` dengan metode PDLP di GPU dan presisi ganda (`CUOPT_PDLP_PRECISION`). Keenam toleransi PDLP (primal, dual, dan gap; absolut dan relatif) diisi nilai yang sama. |
+| Titik awal | Solusi primal putaran sebelumnya (`set_initial_primal_solution`). |
+| Mencari kendala yang dilanggar | Di GPU dengan CuPy: untuk setiap pasangan dicari titik ketiga yang paling melanggar, dengan ambang 10⁻⁵. |
+| Pemeriksaan akhir | Seluruh 135.005.184 kendala segitiga diperiksa ulang di CPU dengan presisi ganda. |
+
+PDLP adalah metode orde pertama, sehingga solusinya berupa hampiran pada toleransi yang diminta. Dua hal mengikuti dari sifat itu, dan keduanya menjadi alasan UCP-CR dan UCP-TR:
+
+- **Kenapa kendala yang dibuang harus dikunci (UCP-CR).** Kendala yang baru dibuang dapat tampak dilanggar lagi sebesar kira-kira toleransi solver, lalu masuk kembali. Pada uji awal dengan data Jawa Tengah, pembuangan tanpa penguncian berputar tanpa henti dengan pelanggaran sekitar 10⁻⁴. Dengan penguncian, setiap kendala paling banyak dibuang satu kali, sehingga loop pasti berhenti. Pada data nasional terjadi 2.508.999 pembuangan, dan 265.765 kendala (10,6%) masuk kembali.
+- **Kenapa toleransi dibuat dua tahap (UCP-TR).** Metode orde pertama melambat ketika dikejar ke akurasi tinggi (Applegate dkk., 2021). Selama kendala masih terus bertambah, akurasi tinggi belum diperlukan. UCP-TR memakai 10⁻⁴ sampai tidak ada kendala baru, lalu menuntaskan pada 10⁻⁶. Putaran terberat turun dari 81,5 detik menjadi 8,2 detik.
 
 ## Hasil utama (data nasional, n = 514)
 
-| Ukuran | Baseline | UCP-CR | UCP-TR |
+| Ukuran | An dkk. (2025) | UCP-CR | UCP-TR |
 |---|---|---|---|
 | Objektif LP | 32.729,75 | 32.729,75 | 32.729,75 |
 | Putaran cutting plane | 42 | 69 | 47 |
@@ -68,10 +85,11 @@ Letak langkah UCP-CR dan UCP-TR di dalam putaran cutting plane ditunjukkan di ba
 | Kelompok lapisan 1 / lapisan 2 | 248 / 15 | 243 / 15 | 243 / 15 |
 | CC lapisan 2 pada graf ambang rata-rata | 28.445 | 28.445 | 28.445 |
 
-- **RQ1:** LP selesai dengan hanya 1,33% dari 135.005.184 kendala segitiga. Biaya hierarkis baseline 36.947, yaitu 1,129 kali batas bawah LP, jauh di bawah jaminan teoretis 25,7846.
+- **RQ1:** LP selesai dengan hanya 1,33% dari 135.005.184 kendala segitiga. Biaya hierarkis An dkk. (2025) 36.947, yaitu 1,129 kali batas bawah LP, jauh di bawah jaminan teoretis 25,7846.
 - **RQ2:** UCP-CR memperkecil LP 3,08 kali pada data nasional dan 1,13 sampai 3,08 kali pada kesembilan instans uji. Waktunya tidak stabil di GPU sewaan, sehingga UCP-CR tidak diklaim lebih cepat.
 - **RQ3:** UCP-TR 3,80 kali lebih cepat pada data nasional. UCP-TR tidak lebih cepat pada n = 35 (0,92 kali, satu kali jalan), dan percepatannya bertambah dari 1,11 kali pada n = 119 menjadi 3,80 kali pada n = 514.
-- Objektif LP ketiga varian sama. Partisi akhir sedikit berbeda (4 daerah pada lapisan 2 dan 16 daerah pada lapisan 1), karena LP HCC memiliki lebih dari satu solusi optimal.
+- Objektif LP ketiga varian sama, dengan selisih paling banyak 1,4 × 10⁻⁶. Dari 263.682 variabel, 262.111 (99,4%) bernilai 0, ½, atau 1 dan identik pada ketiga varian. Seluruh perbedaan terletak pada 1.571 variabel sisanya (0,6%).
+- Partisi akhir sedikit berbeda (4 daerah pada lapisan 2 dan 16 daerah pada lapisan 1), karena LP HCC memiliki lebih dari satu solusi optimal.
 
 ### Objektif LP per putaran
 
@@ -81,7 +99,7 @@ Objektif LP naik setiap kali kendala segitiga yang dilanggar ditambahkan, lalu m
 
 ### Ukuran LP per putaran (UCP-CR)
 
-Pada baseline dan UCP-TR jumlah kendala terus bertambah sampai sekitar 1,79 juta. Pada UCP-CR jumlahnya tidak pernah melebihi 0,59 juta karena kendala yang tidak aktif dibuang.
+Pada An dkk. (2025) dan UCP-TR jumlah kendala terus bertambah sampai sekitar 1,79 juta. Pada UCP-CR jumlahnya tidak pernah melebihi 0,59 juta karena kendala yang tidak aktif dibuang.
 
 ![Kendala segitiga di LP per putaran](figures/gambar_jejak_kendala.png)
 
@@ -95,12 +113,12 @@ Kurva UCP-TR naik paling landai karena putaran awalnya diselesaikan pada toleran
 
 | Lokasi | Isi |
 |---|---|
-| `hcc_nasional_cuopt.py` | Cutting plane + PDLP (cuOpt) di GPU, varian baseline, UCP-CR, dan UCP-TR, pembulatan, dan metrik |
-| `hcc_rounding_an2025.py` | Pembulatan An et al. (2025): *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1) |
+| `hcc_nasional_cuopt.py` | Cutting plane + PDLP (cuOpt) di GPU, varian An dkk. (2025), UCP-CR, dan UCP-TR, pembulatan, dan metrik |
+| `hcc_rounding_an2025.py` | Pembulatan An dkk. (2025): *pre-clustering* (Algoritma 2) dan clustering hierarkis (Algoritma 1) |
 | `test_rounding_an2025.py` | Uji pembulatan dan arah kendala monoton (CPU, HiGHS) |
 | `data/` | Dataset nasional 2024, Jawa Tengah 2022, dan tujuh instans wilayah 2024 |
-| `results/nasional/` | Baseline (A, A2) dan UCP-CR (C, C2) data nasional, dua ulangan; solusi LP `*_x_lp.npy` untuk A dan C |
-| `results/wilayah/` | Baseline dan UCP-CR pada delapan instans uji, tiga ulangan |
+| `results/nasional/` | An dkk. (2025) (A, A2) dan UCP-CR (C, C2) data nasional, dua ulangan; solusi LP `*_x_lp.npy` untuk A dan C |
+| `results/wilayah/` | An dkk. (2025) dan UCP-CR pada delapan instans uji, tiga ulangan |
 | `results/ablasi/` | UCP-TR (E, E2), gabungan UCP-CR dan UCP-TR (CE), serta varian batas 10.000 kendala per putaran (B, D) |
 | `scripts/` | Skrip yang dijalankan di server GPU |
 | `figures/` | Gambar tesis beserta skrip pembuatnya, dan tangkapan layar panel server |
@@ -122,7 +140,7 @@ Sumber data adalah Badan Pusat Statistik (BPS). PDRB ADHK dan IPM diambil dari t
 Kebutuhan: GPU NVIDIA, Python 3.12, NVIDIA cuOpt 26.10 (`cuopt-cu12` atau `cuopt-cu13` sesuai driver), dan paket di `requirements.txt`. Skrip `scripts/setup_server.sh` menyiapkan lingkungan di Ubuntu.
 
 ```bash
-# baseline
+# An dkk. (2025)
 python hcc_nasional_cuopt.py data/dataset_nasional_2024.csv PDRB_ADHK,IPM,TPAK results/nasional/A_nasional2024 \
     --monoton an2025 --pembulatan an2025 --presisi double --tol 1e-6
 # UCP-CR
